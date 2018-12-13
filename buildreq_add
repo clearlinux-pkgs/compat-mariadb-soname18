@@ -1,0 +1,11 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+openssl-dev
+jemalloc-dev
+libaio-dev
+bison
+Linux-PAM-dev
+zlib-dev
+ncurses-dev
+boost-dev
+libxml2-dev

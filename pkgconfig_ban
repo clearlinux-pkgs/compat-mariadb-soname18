@@ -1,0 +1,12 @@
+# This file contains pkgconfig build requirements that get picked up
+# but are undesirable. One entry per line, no whitespace.
+groonga
+groonga-normalizer-mysql
+kytea
+libedit
+libzmq
+valgrind
+arrow
+libgflags
+msgpack
+onigmo

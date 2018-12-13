@@ -1,0 +1,33 @@
+-DBUILD_CONFIG=mysql_release
+-DCMAKE_BUILD_TYPE=RelWithDebInfo
+-DCMAKE_C_FLAGS="-fPIC $CFLAGS -fno-strict-aliasing -DBIG_JOINS=1 -fomit-frame-pointer -fno-delete-null-pointer-checks"
+-DCMAKE_CXX_FLAGS="-fPIC $CXXFLAGS -fno-strict-aliasing -DBIG_JOINS=1 -felide-constructors -fno-rtti -fno-delete-null-pointer-checks"
+-DCMAKE_INSTALL_PREFIX=/usr
+-DENABLED_LOCAL_INFILE=ON
+-DINSTALL_DOCDIR="share/doc/mariadb"
+-DINSTALL_DOCREADMEDIR="share/doc/mariadb"
+-DINSTALL_INCLUDEDIR=include/mysql
+-DINSTALL_INFODIR=share/info
+-DINSTALL_LAYOUT=RPM
+-DINSTALL_LIBDIR="lib64"
+-DINSTALL_MANDIR=share/man
+-DINSTALL_MYSQLSHAREDIR=share/mariadb
+-DINSTALL_MYSQLTESTDIR=share/mysql-test
+-DINSTALL_PLUGINDIR="lib64/mysql/plugin"
+-DINSTALL_SBINDIR=sbin
+-DINSTALL_SCRIPTDIR=bin
+-DINSTALL_SHAREDIR=share/aclocal/mysql
+-DINSTALL_SUPPORTFILESDIR=share/mariadb
+-DINSTALL_SYSCONF2DIR="/usr/share/defaults/mariadb/my.cnf.d"
+-DINSTALL_SYSCONFDIR="/usr/share/defaults/mariadb"
+-DMYSQL_DATADIR="/var/lib/mysql"
+-DMYSQL_UNIX_ADDR=/run/mariadb/mariadb.sock
+-DTMPDIR=/var/tmp
+-DWITH_EMBEDDED_SERVER=OFF
+-DWITH_JEMALLOC=yes
+-DWITH_MYSQLD_LDFLAGS="-pie -Wl,-z,now"
+-DWITH_SSL=system
+-DWITH_ZLIB=system
+-DWITHOUT_MROONGA=True
+-DWITHOUT_TOKUDB=True
+-DWITH_SSL=bundled
