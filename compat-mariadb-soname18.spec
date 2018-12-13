@@ -4,7 +4,7 @@
 #
 Name     : compat-mariadb-soname18
 Version  : 10.1.37
-Release  : 2
+Release  : 3
 URL      : https://downloads.mariadb.org/f/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
 Source0  : https://downloads.mariadb.org/f/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
 Summary  : zlib compression library
@@ -36,16 +36,6 @@ BuildRequires : zlib-dev
 MariaDB is designed as a drop-in replacement of MySQL(R) with more
 features, new storage engines, fewer bugs, and better performance.
 
-%package dev
-Summary: dev components for the compat-mariadb-soname18 package.
-Group: Development
-Requires: compat-mariadb-soname18-lib = %{version}-%{release}
-Provides: compat-mariadb-soname18-devel = %{version}-%{release}
-
-%description dev
-dev components for the compat-mariadb-soname18 package.
-
-
 %package lib
 Summary: lib components for the compat-mariadb-soname18 package.
 Group: Libraries
@@ -62,7 +52,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544741901
+export SOURCE_DATE_EPOCH=1544743251
 mkdir -p clr-build
 pushd clr-build
 %cmake .. -DBUILD_CONFIG=mysql_release \
@@ -102,7 +92,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1544741901
+export SOURCE_DATE_EPOCH=1544743251
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-mariadb-soname18
 cp COPYING %{buildroot}/usr/share/package-licenses/compat-mariadb-soname18/COPYING
@@ -140,15 +130,11 @@ rm -rf %{buildroot}/usr/share
 rm -rf %{buildroot}/usr/lib
 rm -rf %{buildroot}/usr/include
 rm -rf %{buildroot}/usr/lib64/mysql
+rm -rf %{buildroot}/usr/lib64/*.so
 ## install_append end
 
 %files
 %defattr(-,root,root,-)
-
-%files dev
-%defattr(-,root,root,-)
-/usr/lib64/libmysqlclient.so
-/usr/lib64/libmysqlclient_r.so
 
 %files lib
 %defattr(-,root,root,-)
