@@ -4,7 +4,7 @@
 #
 Name     : compat-mariadb-soname18
 Version  : 10.1.37
-Release  : 3
+Release  : 4
 URL      : https://downloads.mariadb.org/f/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
 Source0  : https://downloads.mariadb.org/f/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
 Summary  : zlib compression library
