@@ -4,9 +4,9 @@
 #
 Name     : compat-mariadb-soname18
 Version  : 10.1.37
-Release  : 4
-URL      : https://downloads.mariadb.org/f/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
-Source0  : https://downloads.mariadb.org/f/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
+Release  : 5
+URL      : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
+Source0  : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.37/source/mariadb-10.1.37.tar.gz
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : AGPL-3.0 BSD-3-Clause BSD-3-Clause-Clear GPL-2.0 GPL-3.0 LGPL-2.1 OpenSSL
@@ -16,6 +16,7 @@ BuildRequires : bison
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-distutils3
+BuildRequires : buildreq-php
 BuildRequires : curl-dev
 BuildRequires : git
 BuildRequires : glibc-dev
@@ -23,8 +24,8 @@ BuildRequires : jemalloc-dev
 BuildRequires : libaio-dev
 BuildRequires : libxml2-dev
 BuildRequires : ncurses-dev
-BuildRequires : openjdk9
-BuildRequires : openjdk9-dev
+BuildRequires : openjdk11
+BuildRequires : openjdk11-dev
 BuildRequires : openssl-dev
 BuildRequires : pkgconfig(liblz4)
 BuildRequires : pkgconfig(libpcre)
@@ -51,10 +52,15 @@ lib components for the compat-mariadb-soname18 package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1544743251
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1564080079
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake .. -DBUILD_CONFIG=mysql_release \
 -DCMAKE_BUILD_TYPE=RelWithDebInfo \
 -DCMAKE_C_FLAGS="-fPIC $CFLAGS -fno-strict-aliasing -DBIG_JOINS=1 -fomit-frame-pointer -fno-delete-null-pointer-checks" \
@@ -92,7 +98,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1544743251
+export SOURCE_DATE_EPOCH=1564080079
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-mariadb-soname18
 cp COPYING %{buildroot}/usr/share/package-licenses/compat-mariadb-soname18/COPYING
