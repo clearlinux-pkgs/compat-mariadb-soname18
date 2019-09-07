@@ -6,7 +6,7 @@
 #
 Name     : compat-mariadb-soname18
 Version  : 10.1.41
-Release  : 6
+Release  : 7
 URL      : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.41/source/mariadb-10.1.41.tar.gz
 Source0  : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.41/source/mariadb-10.1.41.tar.gz
 Source1 : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.41/source/mariadb-10.1.41.tar.gz.asc
@@ -35,6 +35,8 @@ BuildRequires : pkgconfig(libpcre)
 BuildRequires : pkgconfig(libssl)
 BuildRequires : pkgconfig(libzstd)
 BuildRequires : zlib-dev
+# Suppress generation of debuginfo
+%global debug_package %{nil}
 
 %description
 MariaDB is designed as a drop-in replacement of MySQL(R) with more
@@ -56,7 +58,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566580768
+export SOURCE_DATE_EPOCH=1567827499
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,7 +103,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1566580768
+export SOURCE_DATE_EPOCH=1567827499
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-mariadb-soname18
 cp COPYING %{buildroot}/usr/share/package-licenses/compat-mariadb-soname18/COPYING
