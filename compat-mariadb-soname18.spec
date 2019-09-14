@@ -6,7 +6,7 @@
 #
 Name     : compat-mariadb-soname18
 Version  : 10.1.41
-Release  : 7
+Release  : 8
 URL      : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.41/source/mariadb-10.1.41.tar.gz
 Source0  : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.41/source/mariadb-10.1.41.tar.gz
 Source1 : http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-10.1.41/source/mariadb-10.1.41.tar.gz.asc
